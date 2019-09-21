@@ -1,0 +1,52 @@
+:host {
+  display: block;
+}
+
+.base {
+  position: relative;
+  white-space: nowrap;
+
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -ms-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+
+.quota {
+  display: inline-block;
+  max-width: 100%;
+  text-align: right;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+
+  -webkit-transition: width 0.5s, background-color 0.5s;
+  -moz-transition: width 0.5s, background-color 0.5s;
+  -ms-transition: width 0.5s, background-color 0.5s;
+  -o-transition: width 0.5s, background-color 0.5s;
+  transition: width 0.5s, background-color 0.5s;
+}
+
+.text, .contrast-text {
+  margin-right: 0.25em;
+  margin-left: 0.25em;
+}
+
+.contrast-text {
+  position: absolute;
+  left: 0;
+}
+
+.footer {
+  text-align: right;
+  padding-right: 0.25em;
+  padding-left: 0.25em;
+}
+
+.end-label {
+  display: inline-block;
+  text-align: right;
+}
+
