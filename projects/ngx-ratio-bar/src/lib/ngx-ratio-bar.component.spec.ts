@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NgxRatioBarComponent } from './ngx-ratio-bar.component';
 import { Component, ViewChild } from '@angular/core';
 
+import { NgxRatioBarComponent, isEmptyString, isValidNumber } from './ngx-ratio-bar.component';
+
 describe('NgxRatioBarComponent', () => {
   let fixture: ComponentFixture<TestHostComponent>;
   let hostComponent: TestHostComponent;
@@ -35,9 +37,9 @@ describe('NgxRatioBarComponent', () => {
   });
 
   it('should treat empty values as empty.', () => {
-    expect(component.isEmptyString('')).toBeTruthy();
-    expect(component.isEmptyString(null)).toBeTruthy();
-    expect(component.isEmptyString(undefined)).toBeTruthy();
+    expect(isEmptyString('')).toBeTruthy();
+    expect(isEmptyString(null)).toBeTruthy();
+    expect(isEmptyString(undefined)).toBeTruthy();
   });
 
   /* * * * * * * * *

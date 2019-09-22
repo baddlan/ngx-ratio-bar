@@ -83,13 +83,13 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
    * ngOnInit
    */
   ngOnInit() {
-    if (this.isEmptyString(this.baseBackgroundColor)) {
+    if (isEmptyString(this.baseBackgroundColor)) {
       this.baseBackgroundColor = DEFAULT_PRIMARY_COLOR;
     }
-    if (this.isEmptyString(this.ratioTextColor)) {
+    if (isEmptyString(this.ratioTextColor)) {
       this.ratioTextColor = DEFAULT_PRIMARY_COLOR;
     }
-    if (this.isEmptyString(this.ratioBackgroundColor)) {
+    if (isEmptyString(this.ratioBackgroundColor)) {
       this.ratioBackgroundColor = DEFAULT_CONTRAST_COLOR;
     }
   }
@@ -120,28 +120,28 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
    * do not comply with requirements.
    */
   validateValues() {
-    if (!this.isNumber(this.value) || isNaN(this.value) || this.value < 0) {
+    if (!isValidNumber(this.value) || this.value < 0) {
       this.value = 0;
     } else if (this.value > 1) {
       this.value = 1;
     }
   }
-
-  /**
-   * Check whether the provided parameter is an empty string.
-   * @param subject The value to test
-   * @return `true` if the parameter is a non-empty string; otherwise return `false`.
-   */
-  isEmptyString(subject: any): boolean {
-    return !(typeof subject === 'string' && subject.length > 0);
-  }
-
-  /**
-   * Check whether the provided parameter is a number.
-   * @param subject The value to test
-   * @return `true` if the parameter is a number; otherwise return `false`.
-   */
-  isNumber(subject: any): boolean {
-    return typeof subject === 'number';
-  }
 }
+
+/**
+ * Check whether the provided parameter is an empty string.
+ * @param subject The value to test
+ * @return `true` if the parameter is a non-empty string; otherwise return `false`.
+ */
+export const isEmptyString = (subject: any) => {
+  return !(typeof subject === 'string' && subject.length > 0);
+};
+
+/**
+ * Check whether the provided parameter is a number.
+ * @param subject The value to test
+ * @return `true` if the parameter is a number; otherwise return `false`.
+ */
+export const isValidNumber = (subject: any) => {
+  return typeof subject === 'number' && !isNaN(subject) && isFinite(subject);
+};
