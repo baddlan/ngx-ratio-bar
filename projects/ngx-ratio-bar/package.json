@@ -1,0 +1,23 @@
+{
+  "name": "ngx-ratio-bar",
+  "version": "1.0.0",
+  "description": "A simple progress bar implementation that can be used to show either a percentage value or a custom string that is independent of the progress value.",
+  "keywords": [
+    "Angular",
+    "progress",
+    "bar",
+    "ratio"
+  ],
+  "author": "baddlan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/baddlan/ngx-ratio-bar"
+  },
+  "bugs": "https://github.com/baddlan/ngx-ratio-bar/issues",
+  "homepage": "http://baddlan.github.io/ngx-ratio-bar",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  }
+}

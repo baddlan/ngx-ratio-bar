@@ -13,7 +13,7 @@
   transition: background-color 0.5s;
 }
 
-.quota {
+.ratio {
   display: inline-block;
   max-width: 100%;
   text-align: right;

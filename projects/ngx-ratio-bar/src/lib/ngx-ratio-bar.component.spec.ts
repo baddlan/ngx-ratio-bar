@@ -45,7 +45,7 @@ describe('NgxRatioBarComponent', () => {
    * * * * * * * * */
 
   it('should have an initial label of `0%` if no custom label is provided.', () => {
-    expect(component.quotaDisplayLabel).toEqual('0%');
+    expect(component.ratioDisplayLabel).toEqual('0%');
   });
 
   it('should validate and reset faulty input values.', () => {
@@ -75,17 +75,17 @@ describe('NgxRatioBarComponent', () => {
   it(`should have (0) decimal places in the displayed value.`, () => {
     hostComponent.value = 0.584665322;
     fixture.detectChanges();
-    expect(componentElement.querySelector('.base .quota .text').innerText).toBe('58%');
+    expect(componentElement.querySelector('.base .ratio .text').innerText).toBe('58%');
   });
 
   it('should display the custom label, instead of the percent value, when one is provided.', () => {
     hostComponent.value = 0.64;
     fixture.detectChanges();
-    expect(componentElement.querySelector('.base .quota .text').innerText).toBe('64%');
+    expect(componentElement.querySelector('.base .ratio .text').innerText).toBe('64%');
 
     hostComponent.label = 'My Custom Label';
     fixture.detectChanges();
-    expect(componentElement.querySelector('.base .quota .text').innerText).toBe('My Custom Label');
+    expect(componentElement.querySelector('.base .ratio .text').innerText).toBe('My Custom Label');
   });
 
   it('should display the end-label when one is provided.', () => {
@@ -97,7 +97,7 @@ describe('NgxRatioBarComponent', () => {
 
 @Component({
   template: `<ngx-ratio-bar [value]="value"
-                                [quotaLabel]="label"
+                                [ratioLabel]="label"
                                 [endLabel]="endLabel"></ngx-ratio-bar>`
 })
 class TestHostComponent {

@@ -1,37 +1,42 @@
 {
   "name": "ngx-ratio-bar",
-  "version": "1.0.0",
-  "description": "A simple progress bar implementation that can be used to show either a percentage value or a custom string that is independent of the progress value.",
-  "keywords": [
-    "Angular",
-    "progress",
-    "bar",
-    "ratio"
-  ],
-  "author": "baddlan",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/baddlan/ngx-ratio-bar"
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
-  "bugs": "https://github.com/baddlan/ngx-ratio-bar/issues",
-  "homepage":"http://baddlan.github.io/ngx-ratio-bar",
-  "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~7.1.0",
+    "@angular/common": "~7.1.0",
+    "@angular/compiler": "~7.1.0",
+    "@angular/core": "~7.1.0",
+    "@angular/forms": "~7.1.0",
+    "@angular/platform-browser": "~7.1.0",
+    "@angular/platform-browser-dynamic": "~7.1.0",
+    "@angular/router": "~7.1.0",
+    "core-js": "^2.5.4",
+    "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.12.1",
     "@angular-devkit/build-ng-packagr": "~0.11.0",
-    "@angular/cli": "~7.1.4",
-    "@angular/compiler-cli": "^7.2.7",
+    "@angular/cli": "~7.1.0",
+    "@angular/compiler-cli": "~7.1.0",
     "@angular/language-service": "~7.1.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^10.12.0",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~3.0.0",
+    "karma": "~3.1.1",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
@@ -42,6 +47,6 @@
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.1"
+    "typescript": "~3.1.6"
   }
 }

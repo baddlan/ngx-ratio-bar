@@ -8,15 +8,15 @@ const DEFAULT_DECIMAL_PLACES = 0;
   selector: 'ngx-ratio-bar',
   template: `
     <div class="base"
-         [style.color]="quotaBackgroundColor"
+         [style.color]="ratioBackgroundColor"
          [style.backgroundColor]="baseBackgroundColor">
-      <span class="quota"
-            [style.color]="quotaTextColor"
-            [style.backgroundColor]="quotaBackgroundColor"
+      <span class="ratio"
+            [style.color]="ratioTextColor"
+            [style.backgroundColor]="ratioBackgroundColor"
             [style.width]="(value * 100) + '%'">
-        <span class="text">{{quotaDisplayLabel}}</span>
+        <span class="text">{{ratioDisplayLabel}}</span>
       </span>
-      <span class="contrast-text">{{quotaDisplayLabel}}</span>
+      <span class="contrast-text">{{ratioDisplayLabel}}</span>
     </div>
     <div *ngIf="endLabel"
          class="footer"
@@ -39,7 +39,7 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
    * The color of text displayed within the bar.
    */
   @Input()
-  quotaTextColor: string = DEFAULT_PRIMARY_COLOR;
+  ratioTextColor: string = DEFAULT_PRIMARY_COLOR;
 
   /**
    * The color of the bar itself.
@@ -48,13 +48,13 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
    * visual accessibility.
    */
   @Input()
-  quotaBackgroundColor: string = DEFAULT_CONTRAST_COLOR;
+  ratioBackgroundColor: string = DEFAULT_CONTRAST_COLOR;
 
   /**
    * A Custom label to be used instead of the percentage value of {@link value}.
    */
   @Input()
-  quotaLabel: string;
+  ratioLabel: string;
 
   /**
    * The unit interval -- a number between 0.0 and 1.0 -- that represents the size
@@ -70,9 +70,9 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
   endLabel: string;
 
   /**
-   * The quota label that will actually be displayed in the view.
+   * The ratio label that will actually be displayed in the view.
    */
-  quotaDisplayLabel = '0%';
+  ratioDisplayLabel = '0%';
 
   /**
    * Constructor
@@ -86,11 +86,11 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
     if (this.isEmptyString(this.baseBackgroundColor)) {
       this.baseBackgroundColor = DEFAULT_PRIMARY_COLOR;
     }
-    if (this.isEmptyString(this.quotaTextColor)) {
-      this.quotaTextColor = DEFAULT_PRIMARY_COLOR;
+    if (this.isEmptyString(this.ratioTextColor)) {
+      this.ratioTextColor = DEFAULT_PRIMARY_COLOR;
     }
-    if (this.isEmptyString(this.quotaBackgroundColor)) {
-      this.quotaBackgroundColor = DEFAULT_CONTRAST_COLOR;
+    if (this.isEmptyString(this.ratioBackgroundColor)) {
+      this.ratioBackgroundColor = DEFAULT_CONTRAST_COLOR;
     }
   }
 
@@ -108,10 +108,10 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
   updateValues() {
     this.validateValues();
 
-    if (typeof this.quotaLabel === 'string') {
-      this.quotaDisplayLabel = this.quotaLabel;
+    if (typeof this.ratioLabel === 'string') {
+      this.ratioDisplayLabel = this.ratioLabel;
     } else {
-      this.quotaDisplayLabel = (this.value * 100).toFixed(DEFAULT_DECIMAL_PLACES) + '%';
+      this.ratioDisplayLabel = (this.value * 100).toFixed(DEFAULT_DECIMAL_PLACES) + '%';
     }
   }
 
