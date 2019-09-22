@@ -1,6 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NgxRatioBarComponent } from './ngx-ratio-bar.component';
 import { Component, ViewChild } from '@angular/core';
 
 import { NgxRatioBarComponent, isEmptyString, isValidNumber } from './ngx-ratio-bar.component';
@@ -13,7 +11,7 @@ describe('NgxRatioBarComponent', () => {
   let componentElement: any;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    return TestBed.configureTestingModule({
       declarations: [ NgxRatioBarComponent, TestHostComponent ]
     })
     .compileComponents();
@@ -32,7 +30,7 @@ describe('NgxRatioBarComponent', () => {
    * Isolated test * * * * * * * * * * * * * * * * * * * * * * * * * * * *
    * * * * * * * * */
 
-  it('should create', () => {
+  it('should exist.', () => {
     expect(component).toBeTruthy();
   });
 
@@ -42,12 +40,22 @@ describe('NgxRatioBarComponent', () => {
     expect(isEmptyString(undefined)).toBeTruthy();
   });
 
+  it('should recognize valid numbers.', () => {
+    expect(isValidNumber(0)).toBeTruthy();
+    expect(isValidNumber(0.51910)).toBeTruthy();
+    expect(isValidNumber(-1005)).toBeTruthy();
+    expect(isValidNumber(0x441)).toBeTruthy();
+    expect(isValidNumber(6e-12)).toBeTruthy();
+    expect(isValidNumber(NaN)).toBeFalsy();
+    expect(isValidNumber(Infinity)).toBeFalsy();
+  });
+
   /* * * * * * * * *
    * Shallow test * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
    * * * * * * * * */
 
   it('should have an initial label of `0%` if no custom label is provided.', () => {
-    expect(component.ratioDisplayLabel).toEqual('0%');
+    return expect(component.ratioDisplayLabel).toEqual('0%');
   });
 
   it('should validate and reset faulty input values.', () => {
