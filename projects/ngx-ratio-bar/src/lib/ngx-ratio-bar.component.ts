@@ -9,7 +9,8 @@ const DEFAULT_DECIMAL_PLACES = 0;
   template: `
     <div class="base"
          [style.color]="ratioBackgroundColor"
-         [style.backgroundColor]="baseBackgroundColor">
+         [style.backgroundColor]="baseBackgroundColor"
+         [style.border]="showBorder === true ? '1px solid ' + ratioBackgroundColor : ''">
       <span class="ratio"
             [style.color]="ratioTextColor"
             [style.backgroundColor]="ratioBackgroundColor"
@@ -20,7 +21,7 @@ const DEFAULT_DECIMAL_PLACES = 0;
     </div>
     <div *ngIf="endLabel"
          class="footer"
-         [style.borderRight]="baseBackgroundColor ? '1px solid ' + baseBackgroundColor  : ''">
+         [style.borderRight]="'1px solid ' + (showBorder === true ? ratioBackgroundColor : baseBackgroundColor)">
       <span class="end-label">{{endLabel}}</span>
     </div>
   `,
@@ -68,6 +69,13 @@ export class NgxRatioBarComponent implements OnInit, OnChanges {
    */
   @Input()
   endLabel: string;
+
+  /**
+   * Determine whether to display a border around the bar. By default, the border color
+   * matches the bar color {@link ratioBackgroundColor}.
+   */
+  @Input()
+  showBorder: boolean;
 
   /**
    * The ratio label that will actually be displayed in the view.
