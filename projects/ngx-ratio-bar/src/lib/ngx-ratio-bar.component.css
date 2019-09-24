@@ -5,6 +5,7 @@
 .base {
   position: relative;
   white-space: nowrap;
+  overflow: hidden;
 
   -webkit-transition: background-color 0.5s;
   -moz-transition: background-color 0.5s;
