@@ -37,6 +37,108 @@
           }
         }
       }
+    },
+    "ngx-ratio-bar-showcase": {
+      "root": "projects/ngx-ratio-bar-showcase/",
+      "sourceRoot": "projects/ngx-ratio-bar-showcase/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngx-ratio-bar-showcase",
+            "index": "projects/ngx-ratio-bar-showcase/src/index.html",
+            "main": "projects/ngx-ratio-bar-showcase/src/main.ts",
+            "polyfills": "projects/ngx-ratio-bar-showcase/src/polyfills.ts",
+            "tsConfig": "projects/ngx-ratio-bar-showcase/tsconfig.app.json",
+            "assets": [
+              "projects/ngx-ratio-bar-showcase/src/favicon.ico",
+              "projects/ngx-ratio-bar-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/ngx-ratio-bar-showcase/src/styles.css",
+              "node_modules/highlight.js/styles/github.css",
+              "node_modules/prismjs/themes/prism-dark.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngx-ratio-bar-showcase/src/environments/environment.ts",
+                  "with": "projects/ngx-ratio-bar-showcase/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngx-ratio-bar-showcase:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngx-ratio-bar-showcase:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngx-ratio-bar-showcase:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-ratio-bar-showcase/src/test.ts",
+            "polyfills": "projects/ngx-ratio-bar-showcase/src/polyfills.ts",
+            "tsConfig": "projects/ngx-ratio-bar-showcase/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-ratio-bar-showcase/karma.conf.js",
+            "styles": [
+              "projects/ngx-ratio-bar-showcase/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/ngx-ratio-bar-showcase/src/favicon.ico",
+              "projects/ngx-ratio-bar-showcase/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-ratio-bar-showcase/tsconfig.app.json",
+              "projects/ngx-ratio-bar-showcase/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-ratio-bar"

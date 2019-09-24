@@ -1,0 +1,153 @@
+<div class="container">
+  <div class="card header-bg d-flex justify-content-center mt-3 mb-3">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="p-4 darken">
+          <h2 class="mb-4">NGX Ratio Bar</h2>
+          <p class="">An Angular component that displays a unit interval value as a percentage.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Installation</span>
+        </h4>
+        <div class="list-group mb-3">
+          <pre><code [highlight]="'$ npm install ngx-ratio-bar'"></code></pre>
+        </div>
+
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Features</span>
+        </h4>
+
+        <ul>
+          <li>Show a custom label on the bar instead of the percentage value.</li>
+          <li>Choose to display a label at the end of the bar's footer.</li>
+          <li>An optional border can be added around the bar.</li>
+          <li>Bar foreground and background colors are customizable using property binding.</li>
+        </ul>
+
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Usage</span>
+        </h4>
+
+        <p>Import NgxRatioBarModule in the root module.</p>
+        <pre><code [highlight]="cbUsageDeclaration"></code></pre>
+
+        <p>Then use it in your templates as follows:</p>
+        <pre><code [highlight]="cbUsageInTemplates1"></code></pre>
+
+        <h5>Labels</h5>
+        <p>To override the displayed percentage value with a custom label, simply set the <code>ratio</code> to any string value.</p>
+        <pre><code [highlight]="cbUsageInTemplates2"></code></pre>
+
+        <p>In addition, you can set the <code>endLabel</code> property, if you wish to display a label at the bottom-end of the bar.</p>
+        <pre><code [highlight]="cbUsageInTemplates3"></code></pre>
+
+        <h5>Look & Feel</h5>
+        <p>You can customize the look and feel of the bar by setting the following properties:</p>
+        <pre><code [highlight]="cbUsageInTemplates4"></code></pre>
+      </div>
+
+      <div class="col-md-6 pt-3 well">
+        <div class="card mb-3" style="background-color: #fdf8f0">
+          <div class="card-header">
+            <span>Demo</span>
+          </div>
+          <div class="card-body">
+            <div class="row mb-4">
+              <div class="col">
+                <ngx-ratio-bar [value]="ratioValue"
+                               [ratioLabel]="ratioLabel || null"
+                               [endLabel]="endLabel"
+                               [baseBackgroundColor]="baseBackgroundColor"
+                               [ratioBackgroundColor]="ratioBackgroundColor"
+                               [ratioTextColor]="ratioTextColor"
+                               [showBorder]="showBorder">
+                </ngx-ratio-bar>
+              </div>
+            </div>
+
+            <form novalidate="novalidate">
+              <div class="row">
+                <div class="col-md-10">
+                  <label for="ratio">Value</label>
+                  <input id="ratio" type="range" min="0.0" max="1.0" [value]="ratioValue" step="0.01" class="custom-range" (change)="ratioValue = $event.target.valueAsNumber">
+                </div>
+                <div class="col-md-2 d-flex flex-column align-items-end mt-auto pl-0">
+                  <h6>
+                    <span class="badge badge-secondary badge-pill">{{ ratioValue }}</span>
+                  </h6>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="ratio-label">Ratio Label</label>
+                  <input id="ratio-label" type="text" [value]="ratioLabel" class="form-control" (keyup)="ratioLabel = $event.target.value">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="footer-end-label">Footer Label</label>
+                  <input id="footer-end-label" type="text" [value]="endLabel" class="form-control" (keyup)="endLabel = $event.target.value">
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="bar-background-color">Bar Background Color</label>
+                  <input id="bar-background-color" type="text" [value]="ratioBackgroundColor" class="form-control" [(colorPicker)]="ratioBackgroundColor">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="ratio-base-background-color">Base Background Color</label>
+                  <input id="ratio-base-background-color" type="text" [value]="baseBackgroundColor" class="form-control" [(colorPicker)]="baseBackgroundColor">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="ratio-text-color">Bar Text Color</label>
+                  <input id="ratio-text-color" type="text" [value]="ratioTextColor" class="form-control" [(colorPicker)]="ratioTextColor">
+                </div>
+                <div class="col-md-6 mt-auto mb-auto">
+                  <div class="form-check form-check-inline">
+                    <input id="show-border" type="checkbox" [checked]="showBorder" class="form-check-input" (change)="showBorder = $event.target.checked">
+                    <label for="show-border" class="form-check-label">Show Border</label>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted">Source and Contribution</span>
+        </h4>
+
+        <p>The source code of <code>ngx-ratio-bar</code> is available on <a href="https://www.github.com/baddlan/ngx-ratio-bar">GitHub</a>.
+        Please report bugs and feature requests on the <a href="https://www.github.com/baddlan/ngx-ratio-bar/issues">GitHub issue tracker</a>.</p>
+
+        <h5>Authors or Acknowledgments</h5>
+        <ul>
+          <li>Bushra Addlan (<a href="https://www.github.com/baddlan">@baddlan</a>)</li>
+          <li>Photo by Cristina Gottardi (<a href="https://unsplash.com/@cristina_gottardi">@cristina_gottardi</a>)</li>
+        </ul>
+
+        <h5>License</h5>
+        <p>This is an open-source project that is licensed under the <a href="https://raw.githubusercontent.com/baddlan/ngx-ratio-bar/master/projects/ngx-ratio-bar/LICENSE">MIT License</a>.</p>
+      </div>
+    </div>
+
+  <footer class="small my-3 text-muted text-center text-small">
+    <p class="mb-1">AppsOven © 2019</p>
+  </footer>
+</div>
+
