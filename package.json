@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "commit": "./node_modules/.bin/commit",
     "copy:shared": "copyfiles ./README.md ./projects/ngx-ratio-bar && copyfiles ./LICENSE ./projects/ngx-ratio-bar",
     "build": "npm run build:lib && npm run build:docs",
     "build:lib": "npm run copy:shared && ng build ngx-ratio-bar",
@@ -54,6 +55,10 @@
     "@angular/cli": "~7.1.0",
     "@angular/compiler-cli": "~7.1.0",
     "@angular/language-service": "~7.1.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-angular": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt-cli": "^8.2.0",
     "@semantic-release/changelog": "^3.0.2",
     "@semantic-release/exec": "^3.3.2",
     "@semantic-release/git": "^7.0.8",
