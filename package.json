@@ -25,9 +25,9 @@
     "adjust-version:main": "rjp package.json version $VERSION",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once --pro"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "~7.1.0",
     "@angular/common": "~7.1.0",
@@ -101,8 +101,15 @@
       "@commitlint/config-conventional"
     ]
   },
+  "private": false,
   "repository": {
     "type": "git",
     "url": "https://github.com/baddlan/ngx-ratio-bar.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "release": {
+    "pkgRoot": "dist/ngx-ratio-bar"
   }
 }
